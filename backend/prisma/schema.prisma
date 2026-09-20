@@ -11,7 +11,7 @@ datasource db {
 model User {
   id            String    @id @default(uuid())
   name          String
-  email         String    @unique
+  email         String    @unique(map: "User_email_key")
   password      String
   phone         String?
   avatar        String?
@@ -32,6 +32,8 @@ model User {
   items         Item[]
   bookings      Booking[]
   reviews       Review[]
+
+  @@map("user")
 }
 
 model Item {
@@ -52,6 +54,8 @@ model Item {
   bookings       Booking[]
   reviews        Review[]
   createdAt      DateTime  @default(now())
+
+  @@map("item")
 }
 
 model Booking {
@@ -69,6 +73,8 @@ model Booking {
   co2Saved    Float     @default(0)
   moneySaved  Float     @default(0)   // estimatedValue - totalPrice, calculated on completion
   createdAt   DateTime  @default(now())
+
+  @@map("booking")
 }
 
 model Payment {
@@ -77,9 +83,11 @@ model Payment {
   status                String   @default("pending")
   gateway               String   @default("stripe")
   stripePaymentIntentId String?
-  bookingId             String   @unique
+  bookingId             String   @unique(map: "Payment_bookingId_key")
   booking               Booking  @relation(fields: [bookingId], references: [id])
   createdAt             DateTime @default(now())
+
+  @@map("payment")
 }
 
 model Review {
@@ -91,4 +99,6 @@ model Review {
   itemId    String
   item      Item     @relation(fields: [itemId], references: [id])
   createdAt DateTime @default(now())
+
+  @@map("review")
 }
