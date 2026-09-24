@@ -50,7 +50,7 @@ export default function RegisterPage() {
               </div>
               <span className="brand-font text-[var(--color-ink)] text-lg">NeighbouRent</span>
             </Link>
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)]">Create your account 🏡</h1>
+            <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)]">Create your account </h1>
             <p className="text-gray-400 text-sm mt-1 font-medium">Join your neighbourhood rental community</p>
           </div>
 
@@ -101,9 +101,9 @@ export default function RegisterPage() {
             {/* Trust points */}
             <div className="grid grid-cols-3 gap-2 py-1">
               {[
-                { icon: "🌱", text: "Eco rentals" },
-                { icon: "🔒", text: "Secure" },
-                { icon: "📍", text: "Hyperlocal" },
+                { icon: "", text: "Eco rentals" },
+                { icon: "", text: "Secure" },
+                { icon: "", text: "Hyperlocal" },
               ].map(p => (
                 <div key={p.text} className="bg-[var(--color-bg)] rounded-xl py-2 flex flex-col items-center gap-1">
                   <span className="text-base">{p.icon}</span>

@@ -109,7 +109,7 @@ function BookingCard({ booking, isOwner, onStatusChange, onReview }) {
         {item?.images?.[0] ? (
           <img src={item.images[0]} alt={item.title} className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-2xl">📦</div>
+          <div className="w-full h-full flex items-center justify-center text-2xl"></div>
         )}
       </div>
 
@@ -127,7 +127,7 @@ function BookingCard({ booking, isOwner, onStatusChange, onReview }) {
         </div>
 
         <div className="flex gap-4 mt-2 text-xs text-gray-400 font-medium">
-          <span>📅 {new Date(booking.startDate).toLocaleDateString("en-IN")} → {new Date(booking.endDate).toLocaleDateString("en-IN")}</span>
+          <span> {new Date(booking.startDate).toLocaleDateString("en-IN")} → {new Date(booking.endDate).toLocaleDateString("en-IN")}</span>
           <span className="font-mono-price font-bold text-[var(--color-ink)]">₹{booking.totalPrice}</span>
           {booking.deposit > 0 && <span className="text-gray-300">+₹{booking.deposit} deposit</span>}
         </div>
@@ -137,12 +137,12 @@ function BookingCard({ booking, isOwner, onStatusChange, onReview }) {
           <div className="mt-2 flex gap-2 flex-wrap">
             {booking.co2Saved > 0 && (
               <span className="text-xs font-bold bg-[var(--color-fresh-light)] text-[var(--color-fresh)] px-2.5 py-1 rounded-full">
-                🌱 {booking.co2Saved} kg CO₂ saved
+                 {booking.co2Saved} kg CO₂ saved
               </span>
             )}
             {booking.moneySaved > 0 && (
               <span className="text-xs font-bold bg-[var(--color-violet-light)] text-[var(--color-violet)] px-2.5 py-1 rounded-full">
-                💰 ₹{booking.moneySaved} saved vs buying new
+                 ₹{booking.moneySaved} saved vs buying new
               </span>
             )}
           </div>
@@ -231,7 +231,7 @@ function ItemManageCard({ item, onToggle, onDelete }) {
         {item.images?.[0] ? (
           <img src={item.images[0]} alt={item.title} className="w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-2xl">📦</div>
+          <div className="w-full h-full flex items-center justify-center text-2xl"></div>
         )}
       </div>
       <div className="flex-1 min-w-0">
@@ -323,11 +323,11 @@ export default function DashboardPage() {
       {/* Stats — 5 cards */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
         {[
-          { label: "Items Listed",     value: myItems.length, emoji: "📦", accent: "bg-[var(--color-violet-light)]" },
-          { label: "Active Rentals",   value: myBookings.filter(b => ["confirmed","active"].includes(b.status)).length, emoji: "🔑", accent: "bg-[var(--color-fresh-light)]" },
+          { label: "Items Listed",     value: myItems.length, emoji: "", accent: "bg-[var(--color-violet-light)]" },
+          { label: "Active Rentals",   value: myBookings.filter(b => ["confirmed","active"].includes(b.status)).length, emoji: "", accent: "bg-[var(--color-fresh-light)]" },
           { label: "Pending Requests", value: ownerBookings.filter(b => b.status === "pending").length, emoji: "⏳", accent: "bg-amber-50" },
-          { label: "CO₂ Saved",       value: `${totalCO2Saved} kg`, emoji: "🌱", accent: "bg-[var(--color-fresh-light)]" },
-          { label: "Money Saved",      value: `₹${totalMoneySaved}`, emoji: "💰", accent: "bg-[var(--color-coral-light)]" },
+          { label: "CO₂ Saved",       value: `${totalCO2Saved} kg`, emoji: "", accent: "bg-[var(--color-fresh-light)]" },
+          { label: "Money Saved",      value: `₹${totalMoneySaved}`, emoji: "", accent: "bg-[var(--color-coral-light)]" },
         ].map(stat => (
           <div key={stat.label} className="bg-white border border-gray-100 rounded-2xl p-4 text-center">
             <div className={`w-9 h-9 ${stat.accent} rounded-xl flex items-center justify-center text-lg mx-auto mb-2`}>
@@ -363,7 +363,7 @@ export default function DashboardPage() {
             <div className="space-y-3">
               {myBookings.length === 0 ? (
                 <div className="text-center py-16 bg-white border border-gray-100 rounded-2xl">
-                  <div className="text-4xl mb-3">🛒</div>
+                  <div className="text-4xl mb-3"></div>
                   <p className="font-display font-bold text-[var(--color-ink)]">No rentals yet</p>
                   <Link to="/listings" className="text-[var(--color-violet)] text-sm font-bold hover:underline mt-1 block">Browse items to rent →</Link>
                 </div>
@@ -377,7 +377,7 @@ export default function DashboardPage() {
                     <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {totalCO2Saved > 0 && (
                         <div className="bg-[var(--color-fresh-light)] rounded-2xl p-4">
-                          <p className="text-sm font-display font-bold text-[var(--color-fresh)] mb-1">🌱 Your environmental impact</p>
+                          <p className="text-sm font-display font-bold text-[var(--color-fresh)] mb-1"> Your environmental impact</p>
                           <p className="text-xs text-[var(--color-fresh)]/80 font-medium">
                             By renting instead of buying, you've avoided <strong>{totalCO2Saved} kg</strong> of CO₂ emissions — roughly equivalent to planting <strong>{Math.max(1, Math.round(totalCO2Saved / 21))} tree{Math.round(totalCO2Saved / 21) !== 1 ? "s" : ""}</strong>.
                           </p>
@@ -385,7 +385,7 @@ export default function DashboardPage() {
                       )}
                       {totalMoneySaved > 0 && (
                         <div className="bg-[var(--color-violet-light)] rounded-2xl p-4">
-                          <p className="text-sm font-display font-bold text-[var(--color-violet)] mb-1">💰 Your money saved</p>
+                          <p className="text-sm font-display font-bold text-[var(--color-violet)] mb-1"> Your money saved</p>
                           <p className="text-xs text-[var(--color-violet)]/80 font-medium">
                             You've saved <strong>₹{totalMoneySaved}</strong> by renting instead of buying these items new.
                           </p>
@@ -402,7 +402,7 @@ export default function DashboardPage() {
             <div className="space-y-3">
               {ownerBookings.length === 0 ? (
                 <div className="text-center py-16 bg-white border border-gray-100 rounded-2xl">
-                  <div className="text-4xl mb-3">📬</div>
+                  <div className="text-4xl mb-3"></div>
                   <p className="font-display font-bold text-[var(--color-ink)]">No booking requests yet</p>
                 </div>
               ) : ownerBookings.map(b => (
@@ -415,7 +415,7 @@ export default function DashboardPage() {
             <div className="space-y-3">
               {myItems.length === 0 ? (
                 <div className="text-center py-16 bg-white border border-gray-100 rounded-2xl">
-                  <div className="text-4xl mb-3">📦</div>
+                  <div className="text-4xl mb-3"></div>
                   <p className="font-display font-bold text-[var(--color-ink)]">You haven't listed anything yet</p>
                   <Link to="/list-item" className="text-[var(--color-violet)] text-sm font-bold hover:underline mt-1 block">List your first item →</Link>
                 </div>

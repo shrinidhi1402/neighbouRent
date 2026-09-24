@@ -141,7 +141,7 @@ export default function ItemDetailPage() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-6xl">📦</div>
+                <div className="w-full h-full flex items-center justify-center text-6xl"></div>
               )}
               {/* Category floating badge */}
               <span className="absolute top-3 left-3 bg-white/95 backdrop-blur text-xs font-bold px-3 py-1.5 rounded-full font-display shadow-sm">
@@ -166,11 +166,11 @@ export default function ItemDetailPage() {
               <div>
                 {requiresVerification && (
                   <span className="inline-block text-xs font-bold bg-[var(--color-coral-light)] text-[var(--color-coral)] px-2.5 py-1 rounded-full mb-2">
-                    🔒 ID required to book
+                     ID required to book
                   </span>
                 )}
                 <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)] leading-tight">{item.title}</h1>
-                <p className="text-gray-400 text-sm mt-1.5">📍 {item.address}</p>
+                <p className="text-gray-400 text-sm mt-1.5"> {item.address}</p>
               </div>
               {item.avgRating && (
                 <div className="text-right flex-shrink-0 bg-[var(--color-fresh-light)] rounded-2xl px-3 py-2">
@@ -337,7 +337,7 @@ function BookingBoxContent({
   if (booking) {
     return (
       <div className="text-center py-4">
-        <div className="text-4xl mb-3">🎉</div>
+        <div className="text-4xl mb-3"></div>
         <h3 className="font-display font-bold text-[var(--color-ink)] text-lg">Booking Requested!</h3>
         <p className="text-sm text-gray-400 mt-2">Your booking is pending confirmation from the owner.</p>
         <div className="bg-[var(--color-bg)] rounded-2xl p-4 mt-4 text-left text-sm space-y-2">
@@ -366,7 +366,7 @@ function BookingBoxContent({
 
       {verificationBlocked && !verifyLoading && (
         <div className="mb-4 bg-[var(--color-coral-light)] rounded-2xl p-4">
-          <p className="text-sm font-bold text-[var(--color-coral)] mb-1">📧 Email Verification Required</p>
+          <p className="text-sm font-bold text-[var(--color-coral)] mb-1"> Email Verification Required</p>
           <p className="text-xs text-[var(--color-coral)]/80 mb-3">
             Items above ₹500/day require a verified email before booking. This takes less than a minute.
           </p>

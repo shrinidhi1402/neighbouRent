@@ -302,7 +302,7 @@ export default function ProfilePage() {
                 <img src={idPreview} alt="ID preview" className="max-h-40 mx-auto rounded-lg object-contain" />
               ) : (
                 <div>
-                  <div className="text-3xl mb-2">📄</div>
+                  <div className="text-3xl mb-2"></div>
                   <p className="text-sm text-gray-500">Click to upload your {idType === "aadhaar" ? "Aadhaar" : "PAN"} card</p>
                   <p className="text-xs text-gray-400 mt-1">JPG, PNG up to 10MB</p>
                 </div>
@@ -310,7 +310,7 @@ export default function ProfilePage() {
             </div>
             <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
 
-            <p className="text-xs text-gray-400">🔒 Stored securely. Never shared with other users.</p>
+            <p className="text-xs text-gray-400"> Stored securely. Never shared with other users.</p>
 
             {uploadMsg && (
               <p className={`text-xs ${uploadMsg.includes("Submitted") ? "text-green-600" : "text-red-500"}`}>

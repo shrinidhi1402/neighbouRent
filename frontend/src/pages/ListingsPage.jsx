@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import { Search } from "lucide-react";
 import api from "../api/axios";
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -13,14 +14,14 @@ L.Icon.Default.mergeOptions({
 
 const CATEGORIES = [
   { name: "All",         icon: "✨" },
-  { name: "Electronics", icon: "📷" },
-  { name: "Furniture",   icon: "🛋️" },
-  { name: "Tools",       icon: "🔧" },
-  { name: "Sports",      icon: "🏸" },
-  { name: "Vehicles",    icon: "🚲" },
-  { name: "Clothing",    icon: "👕" },
-  { name: "Books",       icon: "📚" },
-  { name: "Other",       icon: "📦" },
+  { name: "Electronics", icon: "" },
+  { name: "Furniture",   icon: "️" },
+  { name: "Tools",       icon: "" },
+  { name: "Sports",      icon: "" },
+  { name: "Vehicles",    icon: "" },
+  { name: "Clothing",    icon: "" },
+  { name: "Books",       icon: "" },
+  { name: "Other",       icon: "" },
 ];
 
 function ItemCard({ item }) {
@@ -42,7 +43,7 @@ function ItemCard({ item }) {
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-4xl">📦</div>
+          <div className="w-full h-full flex items-center justify-center text-4xl"></div>
         )}
 
         {/* Category pill */}
@@ -69,7 +70,7 @@ function ItemCard({ item }) {
         <h3 className="font-display font-bold text-[var(--color-ink)] text-[15px] leading-snug truncate group-hover:text-[var(--color-violet)] transition-colors">
           {item.title}
         </h3>
-        <p className="text-gray-400 text-xs mt-0.5 truncate">📍 {item.address}</p>
+        <p className="text-gray-400 text-xs mt-0.5 truncate"> {item.address}</p>
 
         <div className="flex items-center justify-between mt-2.5">
           {avgRating ? (
@@ -122,7 +123,7 @@ export default function ListingsPage() {
         params.radius = filters.radius;
       }
       const res = await api.get("/items", { params });
-      setItems(res.data);
+      setItems(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Failed to fetch items:", err);
     } finally {
@@ -165,7 +166,7 @@ export default function ListingsPage() {
 
       {/* ── Search bar ── */}
       <div className="relative mb-4">
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><Search size={18} /></span>
         <input
           type="text"
           placeholder="Search for drills, cameras, tents..."
@@ -197,7 +198,7 @@ export default function ListingsPage() {
         {/* Near me */}
         {userLocation ? (
           <div className="flex items-center gap-1.5 bg-[var(--color-fresh-light)] rounded-2xl pl-3 pr-1.5 py-1.5">
-            <span className="text-xs font-bold text-[var(--color-fresh)]">📍 Near me</span>
+            <span className="text-xs font-bold text-[var(--color-fresh)]"> Near me</span>
             <select
               value={filters.radius}
               onChange={(e) => setFilters({ ...filters, radius: e.target.value })}
@@ -217,7 +218,7 @@ export default function ListingsPage() {
             disabled={locationLoading}
             className="btn-bounce flex items-center gap-1.5 text-xs font-bold bg-white border border-gray-100 hover:border-[var(--color-violet)] text-[var(--color-ink)] px-3.5 py-2.5 rounded-2xl transition-colors disabled:opacity-50"
           >
-            📍 {locationLoading ? "Locating..." : "Use my location"}
+             {locationLoading ? "Locating..." : "Use my location"}
           </button>
         )}
 
@@ -226,7 +227,7 @@ export default function ListingsPage() {
           onClick={() => setShowMoreFilters(!showMoreFilters)}
           className="btn-bounce flex items-center gap-1.5 text-xs font-bold bg-white border border-gray-100 hover:border-[var(--color-violet)] text-[var(--color-ink)] px-3.5 py-2.5 rounded-2xl transition-colors"
         >
-          💸 Price range {showMoreFilters ? "▲" : "▼"}
+           Price range {showMoreFilters ? "▲" : "▼"}
         </button>
 
         {/* View toggle */}
@@ -237,7 +238,7 @@ export default function ListingsPage() {
           </button>
           <button onClick={() => setView("map")}
             className={`btn-bounce px-3.5 py-2 rounded-xl text-xs font-bold transition-colors ${view === "map" ? "bg-[var(--color-ink)] text-white" : "text-gray-400"}`}>
-            🗺 Map
+             Map
           </button>
         </div>
       </div>
@@ -284,9 +285,9 @@ export default function ListingsPage() {
                 </div>
               ))}
             </div>
-          ) : items.length === 0 ? (
+          ) : items.length === 0 || !Array.isArray(items) ? (
             <div className="text-center py-20 bg-white rounded-2xl border border-gray-100">
-              <div className="text-5xl mb-4">🔍</div>
+              <div className="text-5xl mb-4"></div>
               <p className="font-display font-bold text-[var(--color-ink)]">No items found</p>
               <p className="text-sm text-gray-400 mt-1">Try a different category or widen your search radius</p>
             </div>

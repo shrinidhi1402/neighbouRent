@@ -49,7 +49,7 @@ export default function LoginPage() {
               </div>
               <span className="brand-font text-[var(--color-ink)] text-lg">NeighbouRent</span>
             </Link>
-            <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)]">Welcome back 👋</h1>
+            <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)]">Welcome back </h1>
             <p className="text-gray-400 text-sm mt-1 font-medium">Sign in to your account to continue</p>
           </div>
 
@@ -95,9 +95,9 @@ export default function LoginPage() {
 
         {/* Social proof strip */}
         <div className="flex items-center justify-center gap-6 mt-5 text-xs text-gray-400 font-semibold">
-          <span>🌱 Eco-friendly rentals</span>
-          <span>🔒 Secure & verified</span>
-          <span>📍 Hyperlocal</span>
+          <span> Eco-friendly rentals</span>
+          <span> Secure & verified</span>
+          <span> Hyperlocal</span>
         </div>
       </div>
     </div>

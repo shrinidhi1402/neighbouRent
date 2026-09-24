@@ -41,7 +41,7 @@ function AdminLogin({ onSuccess }) {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-2xl p-8 w-full max-w-sm shadow-sm">
         <div className="text-center mb-6">
-          <div className="text-4xl mb-2">🔐</div>
+          <div className="text-4xl mb-2"></div>
           <h1 className="text-xl font-bold text-gray-900">Admin Access</h1>
           <p className="text-sm text-gray-500 mt-1">Enter the admin key to continue</p>
         </div>
@@ -144,11 +144,11 @@ export default function AdminPage() {
         {/* Stats */}
         {stats && (
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
-            <StatCard label="Total Users" value={stats.totalUsers} emoji="👥" />
-            <StatCard label="Total Items" value={stats.totalItems} emoji="📦" />
-            <StatCard label="Total Bookings" value={stats.totalBookings} emoji="📅" />
+            <StatCard label="Total Users" value={stats.totalUsers} emoji="" />
+            <StatCard label="Total Items" value={stats.totalItems} emoji="" />
+            <StatCard label="Total Bookings" value={stats.totalBookings} emoji="" />
             <StatCard label="Pending IDs" value={stats.pendingVerifications} emoji="⏳" />
-            <StatCard label="CO₂ Saved" value={`${stats.totalCO2Saved.toFixed(1)} kg`} emoji="🌱" />
+            <StatCard label="CO₂ Saved" value={`${stats.totalCO2Saved.toFixed(1)} kg`} emoji="" />
           </div>
         )}
 

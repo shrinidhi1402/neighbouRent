@@ -12,14 +12,14 @@ L.Icon.Default.mergeOptions({
 });
 
 const CATEGORIES = [
-  { name: "Electronics", icon: "📷" },
-  { name: "Furniture",   icon: "🛋️" },
-  { name: "Tools",       icon: "🔧" },
-  { name: "Sports",      icon: "🏸" },
-  { name: "Vehicles",    icon: "🚲" },
-  { name: "Clothing",    icon: "👕" },
-  { name: "Books",       icon: "📚" },
-  { name: "Other",       icon: "📦" },
+  { name: "Electronics", icon: "" },
+  { name: "Furniture",   icon: "️" },
+  { name: "Tools",       icon: "" },
+  { name: "Sports",      icon: "" },
+  { name: "Vehicles",    icon: "" },
+  { name: "Clothing",    icon: "" },
+  { name: "Books",       icon: "" },
+  { name: "Other",       icon: "" },
 ];
 
 function LocationPicker({ onPick }) {
@@ -158,7 +158,7 @@ export default function CreateListingPage() {
 
       {/* Header */}
       <div className="mb-6">
-        <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)]">List an Item 📦</h1>
+        <h1 className="font-display text-2xl font-extrabold text-[var(--color-ink)]">List an Item </h1>
         <p className="text-gray-400 text-sm mt-1 font-medium">Fill in the details to start earning from things you own</p>
       </div>
 
@@ -228,7 +228,7 @@ export default function CreateListingPage() {
             </div>
 
             <Field label="Estimated New Price (₹)" optional
-              hint="💡 Renters see how much they save vs buying — helps you get more bookings">
+              hint=" Renters see how much they save vs buying — helps you get more bookings">
               <input type="number" name="estimatedValue" value={form.estimatedValue}
                 onChange={handleChange} placeholder="e.g. 15000" min="0"
                 className={`${INPUT_CLASS} font-mono-price`} />
@@ -237,7 +237,7 @@ export default function CreateListingPage() {
             {/* Live savings preview */}
             {form.pricePerDay && form.estimatedValue && parseFloat(form.estimatedValue) > 0 && (
               <div className="bg-[var(--color-fresh-light)] rounded-2xl px-4 py-3 flex items-center gap-3">
-                <span className="text-xl">💰</span>
+                <span className="text-xl"></span>
                 <div>
                   <p className="text-xs font-bold text-[var(--color-fresh)]">Renters save ₹{(parseFloat(form.estimatedValue) - parseFloat(form.pricePerDay || 0)).toLocaleString()} on a 1-day rental</p>
                   <p className="text-[10px] text-[var(--color-fresh)]/70 font-medium mt-0.5">This will be shown on their dashboard after the rental</p>
@@ -252,7 +252,7 @@ export default function CreateListingPage() {
           <div className="space-y-3">
             {/* Upload from device */}
             <label className="btn-bounce flex items-center justify-center gap-3 w-full border-2 border-dashed border-gray-200 rounded-2xl px-4 py-5 text-sm font-bold text-gray-400 cursor-pointer hover:border-[var(--color-violet)] hover:text-[var(--color-violet)] hover:bg-[var(--color-violet-light)] transition-colors">
-              <span className="text-xl">📁</span>
+              <span className="text-xl"></span>
               <span>{uploadingFile ? "Uploading..." : "Click to upload from device"}</span>
               <input type="file" accept="image/*" className="hidden"
                 disabled={uploadingFile || uploadingUrl}
@@ -342,7 +342,7 @@ export default function CreateListingPage() {
               )}
               <button type="button" onClick={handleDetectLocation} disabled={locationLoading}
                 className="btn-bounce text-xs font-bold bg-[var(--color-violet-light)] hover:bg-[var(--color-violet)] hover:text-white text-[var(--color-violet)] px-3.5 py-2 rounded-xl transition-colors disabled:opacity-50">
-                {locationLoading ? "Detecting..." : "📍 Use my location"}
+                {locationLoading ? "Detecting..." : " Use my location"}
               </button>
             </div>
 
@@ -365,7 +365,7 @@ export default function CreateListingPage() {
         {/* Submit */}
         <button type="submit" disabled={loading}
           className="btn-bounce w-full bg-[var(--color-violet)] hover:bg-[var(--color-primary-dark)] disabled:opacity-50 text-white font-display font-bold py-4 rounded-2xl transition-colors shadow-lg shadow-[var(--color-violet)]/20 text-base">
-          {loading ? "Publishing..." : "Publish Listing 🚀"}
+          {loading ? "Publishing..." : "Publish Listing "}
         </button>
       </form>
     </div>

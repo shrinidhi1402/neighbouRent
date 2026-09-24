@@ -78,21 +78,21 @@ export default function Navbar() {
 
                       <Link to="/dashboard" onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-[var(--color-ink)]/80 hover:bg-[var(--color-bg)] transition-colors">
-                        <span>📊</span> Dashboard
+                        <span></span> Dashboard
                       </Link>
                       <Link to="/profile" onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-[var(--color-ink)]/80 hover:bg-[var(--color-bg)] transition-colors">
-                        <span>👤</span> My Profile
+                        <span></span> My Profile
                       </Link>
                       <Link to="/list-item" onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-3 px-4 py-2.5 text-sm font-semibold text-[var(--color-ink)]/80 hover:bg-[var(--color-bg)] transition-colors">
-                        <span>📦</span> List an Item
+                        <span></span> List an Item
                       </Link>
 
                       <div className="border-t border-gray-50 mt-1 pt-1">
                         <button onClick={handleLogout}
                           className="flex items-center gap-3 w-full px-4 py-2.5 text-sm font-semibold text-[var(--color-coral)] hover:bg-[var(--color-coral-light)] transition-colors">
-                          <span>🚪</span> Logout
+                          <span></span> Logout
                         </button>
                       </div>
                     </div>
